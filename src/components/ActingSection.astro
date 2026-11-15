@@ -1,0 +1,33 @@
+---
+import Slideshow from './Slideshow.astro';
+import Headshots from './Headshots.astro';
+const actingPhotos = [
+  { src: "/images/acting/solo-performance.png", width: 1080, height: 1350, alt: "Two moments from a solo performance in a striped shirt", caption: "Blip by Tom Bass and Ren Roberts. Performed at Edinburgh Fringe (2025)" },
+  { src: "/images/acting/solo-purple-lights.png", width: 1080, height: 1350, alt: "Solo performance under purple stage lighting", caption: "Blip by Tom Bass and Ren Roberts. Performed at Edinburgh Fringe (2025)" },
+  { src: "/images/acting/solo-green-lights.png", width: 1080, height: 1350, alt: "Solo performance under green stage lighting", caption: "Blip by Tom Bass and Ren Roberts. Performed at Edinburgh Fringe (2025)" },
+  { src: "/images/acting/rehearsal-movement-one.jpg", width: 2768, height: 1848, alt: "Two performers exploring movement in a rehearsal room", caption: "Men Touch by Tom Bass and India Martin. Performed at Leeds Playhouse (2023)" },
+  { src: "/images/acting/rehearsal-movement-two.jpg", width: 2768, height: 1848, alt: "Performers with arms extended during rehearsal", caption: "Men Touch by Tom Bass and India Martin. Performed at Leeds Playhouse (2023)" },
+  { src: "/images/acting/clown-rehearsal.jpeg", width: 2800, height: 1867, alt: "A performer wearing a red clown nose rehearsing with a scene partner", caption: "Being Born by Tom Bass. Performed at Cabaret Du in Etampes, France (2024)" },
+  { src: "/images/acting/sock-party-duet.png", width: 1080, height: 1350, alt: "Two performers seated together onstage", caption: "Sock Party by Tom Bass and Marta Fossati. Performed at Brighton Fringe and The OSO Arts Centre (2026)" },
+  { src: "/images/acting/sock-party-solo.png", width: 1080, height: 1350, alt: "Solo performer beneath hanging socks and stage lights", caption: "Sock Party by Tom Bass and Marta Fossati. Performed at Brighton Fringe and The OSO Arts Centre (2026)" },
+  { src: "/images/acting/ensemble-rehearsal.jpeg", width: 5412, height: 3608, alt: "An ensemble working together with scripts in rehearsal", caption: "Artist Takeover by Gitika Buttoo and Afshan D’souza-lodhi. Performed at Factory International (2024)" },
+  { src: "/images/acting/table-scene-portrait.png", width: 648, height: 960, alt: "Two performers sitting opposite each other at a table", caption: "East by Steven Berkoff Directed by Rosie Thackeray. Performed at Edinburgh Fringe (2019)" },
+  { src: "/images/acting/table-scene-wide.jpeg", width: 1334, height: 901, alt: "Wide view of two performers in a table scene", caption: "East by Steven Berkoff Directed by Rosie Thackeray. Performed at Edinburgh Fringe (2019)" },
+  { src: "/images/acting/table-scene-close.jpeg", width: 760, height: 602, alt: "Close view of the performers in the table scene", caption: "East by Steven Berkoff Directed by Rosie Thackeray. Performed at Edinburgh Fringe (2019)" },
+];
+---
+      <section class="section acting-section" id="acting" aria-labelledby="acting-heading">
+        <h2 id="acting-heading">Acting</h2>
+        <p class="practice-introduction">Through acting and clown, Tom brings stories to life with humour, vulnerability and surprise.</p>
+        <blockquote class="acting-quote"><p>‘Tom is a mesmerising physical performer’</p> <cite>The Wee Review (2025)</cite></blockquote>
+        <Slideshow photos={actingPhotos} label="Acting photos" />
+        <Headshots />
+      </section>
+
+<style>
+  .acting-section > h2 { font-size: clamp(30px, 4vw, 55px); font-weight: 400; letter-spacing: -1px; margin: 0 0 18px; }
+  .acting-quote { color: #000; margin: 12px 0 16px; padding-left: 12px; border-left: 2px solid #b8b8b8; font-size: 17px; line-height: 1.5; text-wrap: pretty; }
+  .acting-quote p { display: inline; font-size: inherit; line-height: inherit; font-style: italic; margin: 0; }
+  .acting-quote cite { display: inline; font-size: 12px; font-style: normal; white-space: nowrap; }
+  .acting-quote cite::before { content: ' — '; }
+</style>

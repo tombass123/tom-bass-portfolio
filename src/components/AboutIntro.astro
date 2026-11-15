@@ -1,0 +1,56 @@
+---
+import images from '../data/live-site-images.json';
+---
+<section class="section biography" aria-label="About Tom Bass">
+  <div class="biography-copy">
+    <p class="introduction">Tom Bass is an <strong>actor and theatre maker</strong> exploring what makes us human through clown, connection and play.</p>
+    <section class="highlights" aria-labelledby="highlights-heading">
+      <h2 id="highlights-heading">Highlights</h2>
+      <article>
+        <span class="credit-label">Voice · 2026</span>
+        <h3><a href="https://www.audible.co.uk/pd/The-Three-Musketeers-Audiobook/B0HGS3SBP7">The Three Musketeers ↗</a><span>for Audible</span></h3>
+        <p>Voice cast in the immersive adaptation starring Christopher Eccleston and Lenny Henry.</p>
+      </article>
+      <article>
+        <span class="credit-label">Stage · 2025</span>
+        <h3><a href="/#blip">Blip ↗</a><span>Brighton &amp; Edinburgh Fringe</span></h3>
+        <blockquote>‘a tender meditation on intergenerational tensions’ <cite>— The Scotsman</cite></blockquote>
+      </article>
+      <article>
+        <span class="credit-label">Live events · 2026</span>
+        <h3><a href="https://www.instagram.com/osoartscentre/">Technical Manager ↗</a><span>OSO Arts Centre</span></h3>
+        <p><strong>100 shows. 16,000 people.</strong> Technical work for Grayson Perry and Merlin Sheldrake.</p>
+      </article>
+    </section>
+    <p class="training"><strong>Training</strong> École Philippe Gaulier · First Class Drama BA, University of Manchester · National Youth Theatre</p>
+  </div>
+  <figure>
+    <img src={images.about[1]} alt="Tom Bass photographed by Zoe Birkbeck" width="395" height="494" />
+    <figcaption>Photography by Zoe Birkbeck</figcaption>
+  </figure>
+</section>
+<style>
+  .biography { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; gap: clamp(32px, 5vw, 72px); }
+  .introduction { width: 100%; max-width: none; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.45; letter-spacing: -.015em; margin: 0 0 24px; }
+  .introduction strong { font-weight: 600; }
+  .highlights h2 { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 14px; }
+  article { border-top: 1px solid #d6d6d6; padding: 14px 0; }
+  .credit-label { display: block; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 5px; color: #555; }
+  article h3 { font-size: clamp(19px, 1.65vw, 22px); line-height: 1.3; margin: 0 0 8px; font-weight: 600; }
+  article h3 span { display: block; font-size: 14px; line-height: 1.4; font-weight: 400; margin-top: 3px; }
+  article p, blockquote { font-size: 15px; line-height: 1.5; margin: 0; }
+  blockquote { font-style: italic; }
+  blockquote cite { font-size: 12px; font-style: normal; white-space: nowrap; }
+  .training { border-top: 1px solid #d6d6d6; padding-top: 14px; margin: 0; font-size: 13px; line-height: 1.6; }
+  .training strong { display: block; margin-bottom: 3px; }
+  figure { margin: 0; width: 100%; max-width: 475px; justify-self: end; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { font-size: 11px; margin-top: 4px; }
+  @media (max-width: 850px) {
+    .biography { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
+  }
+  @media (max-width: 760px) {
+    .biography { grid-template-columns: 1fr; gap: 28px; }
+    figure { max-width: 395px; justify-self: center; }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import LiveSite from '../layouts/LiveSite.astro';
+import LiveEventsSection from '../components/LiveEventsSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import AboutIntro from '../components/AboutIntro.astro';
+import ActingSection from '../components/ActingSection.astro';
+import BlipSection from '../components/BlipSection.astro';
+import images from '../data/live-site-images.json';
+const projects = [
+  { title: 'Bigger and Closer, (not smaller and further away)', credit: 'Lead Artist. Factory International (2025)' },
+  { title: 'Changing Stories', credit: 'Lead Artist. TiPP (2024)' },
+  { title: 'Cont:Acting', credit: 'Lead Artist. Contact Theatre (2024)' },
+  { title: 'Energy', credit: 'Assistant Director. National Youth Theatre (2022)' },
+  { title: 'Lost & Found', credit: 'Lead Artist. Factory International & Odd Arts (2023)' },
+  { title: 'Touch', credit: 'Director. Leeds Playhouse (2023)' },
+];
+---
+<LiveSite title="Home">
+  <AboutIntro />
+  <ActingSection />
+  <BlipSection />
+  <section class="section" id="theatre-making" aria-labelledby="theatre-making-heading">
+    <h2 id="theatre-making-heading">Theatre Making</h2>
+    <p class="practice-introduction">Tom makes theatre through collaboration and play, creating space for different voices and stories.</p>
+    <div class="project-grid">
+    {projects.map((project, i) => (
+      <figure>
+        <img src={images.home[i + 4]} alt={project.title} loading="lazy" />
+        <figcaption><strong>{project.title}</strong>{project.credit}</figcaption>
+      </figure>
+    ))}
+    </div>
+  </section>
+  <LiveEventsSection />
+  <ContactSection embedded />
+</LiveSite>
+<style>
+  :global(main > section) { margin-bottom: 0; }
+  :global(main > section + section) {
+    margin-top: clamp(64px, 7vw, 100px);
+    padding-top: clamp(48px, 6vw, 80px);
+    scroll-margin-top: calc(24px - clamp(48px, 6vw, 80px));
+  }
+  :global(main > #contact) { max-width: none; }
+  :global(main > #blip) { margin-top: 32px; padding-top: 16px; scroll-margin-top: 8px; }
+  #theatre-making-heading { font-size: clamp(30px, 4vw, 55px); font-weight: 400; letter-spacing: -1px; margin: 0 0 40px; }
+</style>

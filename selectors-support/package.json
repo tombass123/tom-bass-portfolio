@@ -1,0 +1,10 @@
+{
+  "name": "selectors-support",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent Selectors Support website",
+  "scripts": {
+    "dev": "python3 -m http.server 4323 --bind 127.0.0.1 --directory site",
+    "preview": "python3 -m http.server 4323 --bind 127.0.0.1 --directory site"
+  }
+}

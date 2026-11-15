@@ -1,0 +1,17 @@
+---
+const { images, label = "Photo gallery" } = Astro.props;
+---
+<div class="photo-gallery" aria-label={label}>
+  {images.map((photo: {src: string; alt: string}) => (
+    <div class="gallery-photo">
+      <img src={photo.src} alt={photo.alt} loading="lazy" />
+    </div>
+  ))}
+</div>
+<style>
+  .photo-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+  .gallery-photo { display: block; }
+  .gallery-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; }
+  @media (max-width: 480px) { .photo-gallery { grid-template-columns: 1fr; } }
+  @media (min-width: 481px) and (max-width: 700px) { .photo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+</style>

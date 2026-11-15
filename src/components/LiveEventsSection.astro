@@ -1,0 +1,38 @@
+---
+import LightingSection from './LightingSection.astro';
+---
+<section id="live-events" aria-labelledby="live-events-heading">
+<h2 id="live-events-heading">Live Events</h2>
+<p class="practice-introduction">Through production, lighting and sound, Tom brings people together at theatre shows and club nights, creating space for expression and shared experiences.</p>
+  <img class="section-portrait" src="/images/tom-bass-live-events.jpg" alt="Tom Bass working on a laptop beside a theatre curtain" width="4672" height="6229" />
+  <section class="section" aria-labelledby="selectors-heading">
+    <h3 id="selectors-heading">Selectors Support</h3>
+    <div class="intro">
+      <p>Founded by Tom Bass and Dom Thompson in 2020, Selectors Support brings people together through charity club nights. Across 10+ parties, it has welcomed over 1,000 people and raised more than £10,000 for local and international charities.</p>
+      <p>Featured artists include Haseeb Iqbal, Donna Leake, Kate Ireland, Chunky and Charlie Bones.</p>
+    </div>
+    <p class="social-links">
+      <a href="https://www.instagram.com/selectors_support/">Instagram ↗</a>
+      <a href="https://linktr.ee/selectorssupport">Events &amp; links ↗</a>
+    </p>
+    <div class="selectors-gallery" aria-label="Selectors Support club night photos">
+      <img src="/images/selectors-support/dj-night.jpg" alt="A DJ playing records at a Selectors Support event" width="5184" height="2920" loading="lazy" />
+      <img src="/images/selectors-support/dancefloor.png" alt="People dancing together at a Selectors Support club night" width="1080" height="1350" loading="lazy" />
+      <img src="/images/selectors-support/dj-duo.jpg" alt="Two DJs behind the decks beneath colourful lights" width="2560" height="1708" loading="lazy" />
+    </div>
+  </section>
+  <LightingSection />
+</section>
+<style>
+  .intro { max-width: none; width: 100%; margin-bottom: 24px; }
+  .intro p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.65; margin: 0 0 16px; }
+  #live-events-heading { font-size: clamp(30px, 4vw, 55px); margin-bottom: 40px; }
+  #selectors-heading { font-size: 28px; font-weight: 500; }
+  .social-links { display: flex; flex-wrap: wrap; gap: 16px 30px; font-size: 17px; }
+  .selectors-gallery { display: grid; grid-template-columns: 1.775fr 0.8fr 1.499fr; gap: 18px; align-items: center; margin-top: 28px; }
+  .selectors-gallery img { display: block; width: 100%; height: auto; }
+  @media (max-width: 700px) {
+    .selectors-gallery { grid-template-columns: 1fr; gap: 20px; }
+    .selectors-gallery img:nth-child(2) { max-width: 360px; justify-self: center; }
+  }
+</style>

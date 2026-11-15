@@ -1,0 +1,31 @@
+  <section class="cv-section" aria-labelledby="recent-heading">
+    <h2 id="recent-heading">Recent and Upcoming Work</h2>
+    <div class="timeline">
+      <article><h3>2025</h3><p>Performed <em>Blip</em> at Brighton and Edinburgh Fringe.</p><blockquote class="review-quote"><p>‘a tender meditation on intergenerational tensions’</p><cite>The Scotsman</cite></blockquote><p>Became Technical Manager at OSO Arts Centre, a theatre producing bold new performances for West London.</p></article>
+      <article><h3>2026</h3><p>Voice acted in <em>The Three Musketeers</em>, an immersive adaptation of Alexandre Dumas's masterpiece for Audible, starring Christopher Eccleston and Lenny Henry.</p><p>Overseen 100 shows at OSO Arts Centre, coordinating events for 16,000 people. Teched shows for Grayson Perry and Merlin Sheldrake.</p></article>
+    </div>
+  </section>
+  <section class="cv-section" aria-labelledby="training-heading">
+    <h2 id="training-heading">Training</h2>
+    <ul class="training">
+      <li>Ecole Philippe Gaulier 2024</li>
+      <li>University of Manchester Drama First Class BA (Hons) 2017–2020</li>
+      <li>National Youth Theatre (NYT) Intake Course &amp; Creative Leadership Training 2019–2022</li>
+      <li>LAMDA Acting for Screen and Performing Shakespeare 2018</li>
+    </ul>
+  </section>
+<style>
+  .cv-section { margin-bottom: 26px; }
+  .cv-section:last-child { margin-bottom: 0; }
+  .cv-section h2 { font-size: 25px; font-weight: 700; line-height: 1.25; margin: 0 0 10px; }
+  .timeline { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .timeline h3 { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+  .timeline p { font-size: 17px; line-height: 1.45; margin: 0 0 10px; }
+  .review-quote { margin: 12px 0 16px; padding-left: 12px; border-left: 2px solid #b8b8b8; font-size: 14px; line-height: 1.5; text-wrap: pretty; }
+  .review-quote p { display: inline; font-size: inherit; line-height: inherit; font-style: italic; margin: 0; }
+  .review-quote cite { display: inline; font-size: 12px; font-style: normal; white-space: nowrap; }
+  .review-quote cite::before { content: ' — '; }
+  .training { padding: 0; margin: 0; list-style: none; font-size: 17px; line-height: 1.45; }
+  .training li { margin-bottom: 6px; }
+  @media (max-width: 500px) { .timeline { grid-template-columns: 1fr; gap: 14px; } }
+</style>

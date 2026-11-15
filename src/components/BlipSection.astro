@@ -1,0 +1,41 @@
+---
+import PhotoGallery from './PhotoGallery.astro';
+import images from '../data/live-site-images.json';
+---
+  <section class="section" id="blip" aria-labelledby="blip-heading">
+    <h3 id="blip-heading">Blip</h3>
+    <p class="intro">Dive into a portal with Tom as he uncovers surreal and sentimental memories of his father, in a playful journey through physical comedy and self-reflection... Blip is performed by Tom Bass and directed by Ren Roberts. <a href="/blip-press-pack.pdf">Click for Blip Press Pack.</a></p>
+    <PhotoGallery images={images.home.slice(1, 4).map((src, i) => ({ src, alt: `Blip performance photograph ${i + 1}` }))} label="Blip performance photographs" />
+    <p class="credit">Photography by Immo Cowan</p>
+    <section class="reviews" aria-labelledby="blip-reviews-heading">
+      <h4 id="blip-reviews-heading">Reviews</h4>
+      <ul class="review-list">
+        <li>
+          <blockquote><p>‘not only incredibly engaging and comical but also deeply emotional and sincere’</p></blockquote>
+          <p class="review-source"><a href="https://jadar.uk/2025/02/27/review-blip/">JADAR — five-star review</a><span>Contact Theatre, Manchester · 27 February 2025</span></p>
+        </li>
+        <li>
+          <blockquote><p>‘an imaginative, poignant tale told with heart and humour’</p></blockquote>
+          <p class="review-source"><a href="https://broadwaybaby.com/shows/gently-tragic-and-tentatively-hopeful-blip-is-a-special-show-telling-a-small-poignant-story/827584">Broadway Baby — Lois Zoppi</a><span>Brighton Fringe · 29 May 2025</span></p>
+        </li>
+        <li>
+          <blockquote><p>‘Sweet but devastating reflection on a connection forever missed’</p></blockquote>
+          <p class="review-source"><a href="https://theweereview.com/review/blip/">The Wee Review — Richard Stamp</a><span>Edinburgh Fringe · 4 August 2025</span></p>
+        </li>
+      </ul>
+    </section>
+  </section>
+<style>
+  .intro { max-width: none; width: 100%; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; }
+  #blip-heading { font-size: 28px; font-weight: 500; margin: 0 0 24px; }
+  .credit { font-size: 11px; line-height: 1.2; margin: 4px 0 0; }
+  .reviews { margin-top: 36px; }
+  .reviews h4 { font-size: 28px; font-weight: 500; margin: 0 0 24px; }
+  .review-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; padding: 0; margin: 0; list-style: none; }
+  .review-list li { min-width: 0; }
+  .review-list blockquote { margin: 0 0 12px; padding-left: 12px; border-left: 2px solid #b8b8b8; }
+  .review-list blockquote p { font-size: 17px; line-height: 1.5; font-style: italic; margin: 0; }
+  .review-source { font-size: 14px; line-height: 1.5; margin: 0; }
+  .review-source span { display: block; margin-top: 4px; font-size: 12px; }
+  @media (max-width: 800px) { .review-list { grid-template-columns: 1fr; gap: 24px; } }
+</style>

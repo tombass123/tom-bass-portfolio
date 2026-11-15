@@ -1,0 +1,83 @@
+---
+interface Photo { src: string; alt: string; width: number; height: number; caption: string; }
+interface Props { photos: Photo[]; label: string; href?: string; }
+const { photos, label, href } = Astro.props;
+---
+        <div class="slideshow" aria-label={label} aria-roledescription="carousel">
+          <a class="project-image" href={href} tabindex="0" aria-label={label}>
+            {photos.map((photo, index) => (
+              <img data-slide class:list={{ 'is-active': index === 0 }} hidden={index !== 0} data-caption={photo.caption} src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" />
+            ))}
+            <span class="image-caption" data-image-caption>{photos[0].caption}</span>
+          </a>
+          <div class="slide-controls" hidden>
+            <button type="button" data-previous aria-label="Previous photo">←</button>
+            <span data-count aria-live="off">1 / {photos.length}</span>
+            <button type="button" data-next aria-label="Next photo">→</button>
+            <button type="button" data-pause>Pause</button>
+          </div>
+        </div>
+<script>
+  document.querySelectorAll<HTMLElement>('.slideshow').forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll<HTMLImageElement>('[data-slide]'));
+    const controls = carousel.querySelector<HTMLElement>('.slide-controls')!;
+    const caption = carousel.querySelector<HTMLElement>('[data-image-caption]')!;
+    const count = carousel.querySelector<HTMLElement>('[data-count]')!;
+    const pause = carousel.querySelector<HTMLButtonElement>('[data-pause]')!;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let paused = reducedMotion.matches;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === current);
+        slide.setAttribute('aria-hidden', String(i !== current));
+      });
+      caption.textContent = slides[current].dataset.caption ?? slides[current].alt;
+      count.textContent = `${current + 1} / ${slides.length}`;
+    };
+    const stop = () => { clearInterval(timer); timer = undefined; };
+    const start = () => {
+      stop();
+      if (!paused && !document.hidden && !carousel.matches(':hover') && !carousel.contains(document.activeElement)) {
+        timer = setInterval(() => show(current + 1), 3000);
+      }
+    };
+    carousel.querySelector('[data-previous]')!.addEventListener('click', () => { show(current - 1); start(); });
+    carousel.querySelector('[data-next]')!.addEventListener('click', () => { show(current + 1); start(); });
+    pause.addEventListener('click', () => {
+      paused = !paused;
+      pause.textContent = paused ? 'Play' : 'Pause';
+      start();
+    });
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', () => setTimeout(start, 0));
+    document.addEventListener('visibilitychange', start);
+    reducedMotion.addEventListener('change', () => {
+      paused = reducedMotion.matches;
+      pause.textContent = paused ? 'Play' : 'Pause';
+      start();
+    });
+    slides.forEach((slide) => { slide.hidden = false; });
+    show(0);
+    controls.hidden = false;
+    pause.textContent = paused ? 'Play' : 'Pause';
+    start();
+  });
+</script>
+<style>
+  .project-image { position: relative; display: grid; margin-top: 48px; }
+  .project-image img { display: block; width: 100%; grid-area: 1 / 1; height: clamp(320px, 50vw, 650px); object-fit: contain; opacity: 0; transition: opacity .8s ease-in-out; }
+  .project-image img.is-active { opacity: 1; }
+  .project-image img[hidden], .slide-controls[hidden] { display: none; }
+  .image-caption { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 10px 16px; background: rgb(0 0 0 / 78%); color: #fff; font-size: 14px; line-height: 1.4; text-align: center; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
+  .project-image:hover .image-caption, .project-image:focus-visible .image-caption { opacity: 1; }
+  .slide-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 15px; font-size: 13px; }
+  .slide-controls button { font: inherit; color: #191919; background: transparent; border: 0; padding: 10px; cursor: pointer; }
+  .slide-controls button:focus-visible { outline: 2px solid #191919; outline-offset: 2px; }
+  @media (hover: none) { .image-caption { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .project-image img, .image-caption { transition: none; } }
+</style>

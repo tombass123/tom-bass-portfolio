@@ -1,0 +1,79 @@
+---
+import Slideshow from './Slideshow.astro';
+const photos = [
+  {
+    "src": "/images/lighting/live-music.jpg",
+    "width": 7008,
+    "height": 4672,
+    "alt": "Live music under stage lighting at OSO Arts Centre",
+    "caption": "Summer Sounds. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/don-juan-33.jpg",
+    "width": 4672,
+    "height": 6229,
+    "alt": "Don Juan — performer in dramatic side lighting",
+    "caption": "Don Juan. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/don-juan-47.jpg",
+    "width": 4672,
+    "height": 6229,
+    "alt": "Don Juan — performer writing at a desk",
+    "caption": "Don Juan. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/earnest-2175.jpg",
+    "width": 1365,
+    "height": 2048,
+    "alt": "The Importance of Being Earnest — performer in a spotlight",
+    "caption": "The Importance of Being Earnest. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/don-juan-32.jpg",
+    "width": 4672,
+    "height": 7008,
+    "alt": "Don Juan — performer seen from behind in stage lighting",
+    "caption": "Don Juan. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/earnest-2170.jpg",
+    "width": 2048,
+    "height": 1330,
+    "alt": "The Importance of Being Earnest — two performers seated onstage",
+    "caption": "The Importance of Being Earnest. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/earnest-2178.jpg",
+    "width": 1365,
+    "height": 2048,
+    "alt": "The Importance of Being Earnest — performer in a pale suit under pink stage lighting",
+    "caption": "The Importance of Being Earnest. OSO Arts Centre (2026)"
+  },
+  {
+    "src": "/images/lighting/live-music-guitar.jpg",
+    "width": 3958,
+    "height": 5277,
+    "alt": "Guitarist performing under warm and blue stage lighting at OSO Arts Centre",
+    "caption": "Summer Sounds. OSO Arts Centre (2026)"
+  }
+];
+---
+<section class="section" id="lighting-design" aria-labelledby="lighting-heading">
+  <h3 id="lighting-heading">Lighting Design</h3>
+  <div class="qualifications">
+    <h4>Qualifications</h4>
+    <ul>
+      <li>ETC Eos Family Training</li>
+      <li>Training with Jonathan Suffolk, former Technical Director of the National Theatre</li>
+    </ul>
+  </div>
+  <Slideshow photos={photos} label="Lighting design photos" />
+</section>
+<style>
+  .qualifications { font-size: 17px; line-height: 1.5; margin: 0 0 24px; }
+  .qualifications h4 { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+  .qualifications ul { padding-left: 20px; margin: 0; }
+  .qualifications li + li { margin-top: 6px; }
+  h3 { font-size: 28px; font-weight: 500; margin-bottom: 24px; }
+</style>
