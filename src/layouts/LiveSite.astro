@@ -72,7 +72,8 @@ const links = [
   }
   @media (max-width: 700px) {
     nav { gap: 14px 22px; font-size: 16px; }
-    .site-header > nav { column-gap: 22px; }
+    .site-header > nav { width: 100%; flex-wrap: nowrap; justify-content: space-between; column-gap: 8px; font-size: clamp(11px, 3.2vw, 16px); }
+    .site-header > nav a { white-space: nowrap; }
     .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 18px; }
     .section { margin-bottom: 52px; }
   }
