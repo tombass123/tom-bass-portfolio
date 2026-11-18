@@ -50,12 +50,12 @@ import images from '../data/live-site-images.json';
     .biography { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
   }
   @media (max-width: 760px) {
-    .biography { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 18px; }
+    .biography { grid-template-columns: 1fr; gap: 24px; }
     .biography-copy { display: contents; }
     .introduction { grid-column: 1; grid-row: 1; margin-bottom: 0; font-size: 16px; line-height: 1.45; }
-    figure { grid-column: 2; grid-row: 1; max-width: 240px; justify-self: end; }
-    figcaption { font-size: 9px; line-height: 1.35; }
-    .highlights { grid-column: 1 / -1; grid-row: 2; }
-    .training { grid-column: 1 / -1; grid-row: 3; }
+    figure { grid-column: 1; grid-row: 2; max-width: none; justify-self: start; }
+    figcaption { font-size: 11px; line-height: 1.35; }
+    .highlights { grid-column: 1; grid-row: 3; }
+    .training { grid-column: 1; grid-row: 4; }
   }
 </style>
