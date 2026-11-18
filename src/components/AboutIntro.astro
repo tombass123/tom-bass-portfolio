@@ -50,7 +50,11 @@ import images from '../data/live-site-images.json';
     .biography { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
   }
   @media (max-width: 760px) {
-    .biography { grid-template-columns: 1fr; gap: 28px; }
-    figure { max-width: 395px; justify-self: center; }
+    .biography { grid-template-columns: 1fr; gap: 24px; }
+    .biography-copy { display: contents; }
+    .introduction { grid-row: 1; margin-bottom: 0; font-size: 20px; }
+    figure { grid-row: 2; max-width: 320px; justify-self: center; }
+    .highlights { grid-row: 3; }
+    .training { grid-row: 4; }
   }
 </style>
