@@ -38,4 +38,14 @@ import images from '../data/live-site-images.json';
   .review-source { font-size: 14px; line-height: 1.5; margin: 0; }
   .review-source span { display: block; margin-top: 4px; font-size: 12px; }
   @media (max-width: 800px) { .review-list { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 700px) {
+    .reviews { margin-top: 26px; }
+    .reviews h4 { font-size: 22px; margin-bottom: 16px; }
+    .review-list { gap: 20px; }
+    .review-list blockquote { border-left-width: 1px; padding-left: 10px; margin-bottom: 7px; }
+    .review-list blockquote p { font-size: 15px; line-height: 1.4; }
+    .review-source { padding-left: 11px; font-size: 12px; line-height: 1.4; }
+    .review-source a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .review-source span { margin-top: 3px; font-size: 11px; color: #666; }
+  }
 </style>
