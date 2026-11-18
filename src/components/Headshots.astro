@@ -16,7 +16,7 @@ const descriptions = [
       </a>
     ))}
   </div>
-  <p class="headshot-credit">Photography by Zoe Birkbeck · Select a photo to view full size</p>
+  <p class="headshot-credit">Photography by Zoe Birkbeck<span class="view-hint"> · Select a photo to view full size</span></p>
 </section>
 <style>
   .headshots { margin-top: 48px; }
@@ -25,6 +25,6 @@ const descriptions = [
   .headshot-grid a { display: block; }
   .headshot-grid img { display: block; width: 100%; height: auto; }
   .headshot-credit { margin: 4px 0 0; font-size: 11px; line-height: 1.2; }
-  @media (max-width: 700px) { .headshot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+  @media (max-width: 700px) { .view-hint { display: none; } .headshot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
   @media (max-width: 420px) { .headshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>
